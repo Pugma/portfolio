@@ -14,7 +14,9 @@
 		"@astrojs/cloudflare": "^12.6.12",
 		"@astrojs/rss": "^4.0.15",
 		"@astrojs/sitemap": "^3.7.0",
-		"astro": "^5.18.0"
+		"@iconify-json/mdi": "^1.2.3",
+		"astro": "^5.18.0",
+		"astro-icon": "^1.1.5"
 	},
 	"devDependencies": {
 		"@types/node": "^24.10.4",
