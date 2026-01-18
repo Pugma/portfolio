@@ -1,0 +1,8 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts").then((posts) => {
+  posts.sort((a, b) => (a.data.date < b.data.date ? -1 : 1));
+  return posts;
+});
+---
