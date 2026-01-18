@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 const posts = await getCollection("posts").then((posts) =>
   posts.sort(
-    (a, b) => b.data?.date.valueOf() - a.data?.date.valueOf(), // newest first
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(), // newest first
   ),
 );
 
