@@ -1,8 +1,47 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("posts").then((posts) => {
-  posts.sort((a, b) => (a.data.date < b.data.date ? -1 : 1));
+  posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   return posts;
 });
 ---
+
+<Layout>
+  <h1>Posts</h1>
+  {
+    posts.length ? (
+      posts.map((post) => (
+        <div class="post-preview">
+          <a href={`/posts/${post.id}`}>
+            <h3>
+              {post.data.date.toLocaleDateString()} - {post.data.title}
+            </h3>
+            <p>{post.body?.slice(0, 100)}...</p>
+          </a>
+        </div>
+      ))
+    ) : (
+      <p>記事はまだ投稿されていません</p>
+    )
+  }
+</Layout>
+
+<style>
+  .post-preview {
+    padding: 16px 32px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    margin-bottom: 24px;
+  }
+
+  .post-preview a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-preview a:hover {
+    text-decoration: underline;
+  }
+</style>
