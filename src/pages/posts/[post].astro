@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { render } from "astro:content";
+
+export const getStaticPaths = async () => {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => ({
+    params: { post: post.id },
+    props: { post },
+  }));
+};
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout>
+  <h1>{post.data.title}</h1>
+  <p>公開日: {post.data.date.toLocaleDateString()}</p>
+  {
+    post.data.updatedDate && (
+      <p>更新日: {post.data.updatedDate.toLocaleDateString()}</p>
+    )
+  }
+
+  <Content />
+</Layout>
