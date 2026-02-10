@@ -7,7 +7,7 @@ export const getStaticPaths = async () => {
   const posts = await getCollection("posts");
 
   return posts.map((post) => ({
-    params: { post: post.id },
+    params: { post: post.data.date.toISOString().split("T")[0] },
     props: { post },
   }));
 };
@@ -18,10 +18,10 @@ const { Content } = await render(post);
 
 <Layout>
   <h1>{post.data.title}</h1>
-  <p>公開日: {post.data.date.toLocaleDateString()}</p>
+  <p>公開日: {post.data.date.toISOString().split("T")[0]}</p>
   {
     post.data.updatedDate && (
-      <p>更新日: {post.data.updatedDate.toLocaleDateString()}</p>
+      <p>更新日: {post.data.updatedDate.toISOString().split("T")[0]}</p>
     )
   }
 
