@@ -14,9 +14,9 @@ const posts = await getCollection("posts").then((posts) => {
     posts.length ? (
       posts.map((post) => (
         <div class="post-preview">
-          <a href={`/posts/${post.id}`}>
+          <a href={`/posts/${post.data.date.toISOString().split("T")[0]}`}>
             <h3>
-              {post.data.date.toLocaleDateString()} - {post.data.title}
+              {post.data.date.toISOString().split("T")[0]} - {post.data.title}
             </h3>
             <p>{post.body?.slice(0, 100)}...</p>
           </a>
