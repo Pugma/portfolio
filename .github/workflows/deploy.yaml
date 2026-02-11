@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  repository_dispatch:
+    types: 
+      - deploy
   workflow_dispatch:
 
 permissions:
@@ -15,6 +18,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
+      - name: Checkout content repository
+        uses: actions/checkout@v6
+        with:
+          repository: Pugma/blog-content
+          path: ./src/pages/posts/contents
+          token: ${{ secrets.BLOG_CONTENT_GITHUB_PAT }}
 
       - name: Setup mise
         uses: jdx/mise-action@v3
