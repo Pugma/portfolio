@@ -1,0 +1,102 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<header>
+  <h1>ぷぐま Portfolio</h1>
+  <nav class="links">
+    <a
+      href="/"
+      class={Astro.url.pathname === "/" ? "active" : undefined}
+      aria-current={Astro.url.pathname === "/" ? "page" : undefined}
+    >
+      Portfolio
+    </a>
+    <a
+      href="/posts"
+      class={Astro.url.pathname === "/posts" ||
+      Astro.url.pathname.startsWith("/posts/")
+        ? "active"
+        : undefined}
+      aria-current={Astro.url.pathname === "/posts" ||
+      Astro.url.pathname.startsWith("/posts/")
+        ? "page"
+        : undefined}
+    >
+      Posts
+    </a>
+  </nav>
+  <div>
+    <a href="https://github.com/Pugma/portfolio" aria-label="GitHub repository of this page">
+      <Icon name="mdi:github" size={24} is:inline={true} />
+    </a>
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #fff780;
+    padding: 8px 16px;
+    text-align: center;
+  }
+
+  .links {
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    gap: 16px;
+  }
+
+  .links a {
+    opacity: 0.68;
+    transition: opacity 0.2s ease;
+  }
+
+  .links a:hover,
+  .links a.active {
+    opacity: 1;
+  }
+
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .links a {
+    padding: 0 8px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+
+  .links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0.2em;
+    background: currentColor;
+    opacity: 0.2;
+    border-radius: 4px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  .links a.active::after {
+    transform: scaleX(1);
+  }
+
+  [data-icon] {
+    color: #000;
+  }
+</style>
