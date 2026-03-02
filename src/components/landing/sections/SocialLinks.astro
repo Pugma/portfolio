@@ -1,0 +1,25 @@
+---
+import { socialLinks } from "../../../data/social-links";
+import AccountButton from "../../AccountButton.astro";
+---
+
+<div class="accounts">
+  {
+    socialLinks.map((link) => (
+      <AccountButton
+        icon={link.icon}
+        accountId={link.accountId}
+        color={link.color}
+        url={link.url}
+      />
+    ))
+  }
+</div>
+
+<style>
+  .accounts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+</style>

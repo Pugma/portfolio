@@ -1,0 +1,105 @@
+---
+import SectionLayout from "../SectionLayout.astro";
+import { projects } from "../../../data/projects";
+import { Image } from "astro:assets";
+
+function renderLinks(
+  links: { label: string; url: string; children?: any[] }[],
+): string {
+  return links
+    .map((link) => {
+      const inner = link.url
+        ? `<a href="${link.url}">${link.label}</a>`
+        : link.label;
+      const childrenHtml = link.children
+        ? `<ul>${renderLinks(link.children)}</ul>`
+        : "";
+      return `<li>${inner}${childrenHtml}</li>`;
+    })
+    .join("");
+}
+---
+
+<SectionLayout title="過去の開発事例 (特にアピールしたいもの)">
+  {
+    projects.map((project) => (
+      <article>
+        <h3>
+          【{project.tag}】{project.name}
+        </h3>
+
+        <h4>サービス概要</h4>
+        {project.overview.length === 1 ? (
+          <p>{project.overview[0]}</p>
+        ) : (
+          <ul>
+            {project.overview.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )}
+
+        <h4>担当範囲</h4>
+        {project.roles.map((role) => (
+          <div>
+            {role.heading && <h5>{role.heading}</h5>}
+            <ul>
+              {role.details.map((d) => (
+                <li>{d}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        {project.images && project.images.length > 0 && (
+          <div class="images">
+            {project.images.map((img) => (
+              <div>
+                <p>{img.alt}</p>
+                <Image
+                  alt={img.alt}
+                  src={img.src}
+                  style={`width: ${img.width}`}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {project.narratives.length > 0 && (
+          <div>
+            <h4>開発中に心がけたこと</h4>
+            {project.narratives.map((n) => (
+              <div>
+                <h5>{n.heading}</h5>
+                {n.body.split("\n\n").map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {project.notes && (
+          <div>
+            <h4>備考</h4>
+            <p>{project.notes}</p>
+          </div>
+        )}
+
+        <h4>関連リンク</h4>
+        <ul set:html={renderLinks(project.links)} />
+      </article>
+    ))
+  }
+</SectionLayout>
+
+<style>
+  .images {
+    margin: 1rem 0;
+  }
+
+  .images img {
+    max-width: 100%;
+  }
+</style>
