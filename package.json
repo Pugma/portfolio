@@ -19,6 +19,7 @@
 		"astro-icon": "^1.1.5"
 	},
 	"devDependencies": {
+		"@iconify-json/simple-icons": "^1.2.72",
 		"@types/node": "^24.10.4",
 		"wrangler": "^4.58.0"
 	},

@@ -1,12 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import { Content } from "../components/landing.md";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Biography from "../components/landing/sections/Biography.astro";
+import TechStack from "../components/landing/sections/TechStack.astro";
+import Works from "../components/landing/sections/Works.astro";
+import Strengths from "../components/landing/sections/Strengths.astro";
+import Profile from "../components/landing/sections/Profile.astro";
 ---
 
 <Layout>
-  <Content />
+  <Profile />
+  <Biography />
+  <TechStack />
+  <Works />
+  <Strengths />
 </Layout>

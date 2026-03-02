@@ -1,0 +1,22 @@
+---
+import SectionLayout from "../SectionLayout.astro";
+import { techStack } from "../../../data/tech-stack";
+---
+
+<SectionLayout title="技術スタック">
+  {techStack.map((tier) => (
+    <div>
+      <h3>{tier.label}</h3>
+      <ul>
+        {tier.items.map((item) => (
+          <li>
+            {item.name}
+            <ul>
+              <li>{item.description}</li>
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</SectionLayout>
