@@ -15,8 +15,10 @@
 		"@astrojs/rss": "^4.0.15",
 		"@astrojs/sitemap": "^3.7.0",
 		"@iconify-json/mdi": "^1.2.3",
+		"@tailwindcss/vite": "^4.2.1",
 		"astro": "^5.18.0",
-		"astro-icon": "^1.1.5"
+		"astro-icon": "^1.1.5",
+		"tailwindcss": "^4.2.1"
 	},
 	"devDependencies": {
 		"@iconify-json/simple-icons": "^1.2.72",
