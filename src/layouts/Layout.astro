@@ -1,55 +1,56 @@
 ---
 import Header from "../components/header.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
 
-		<title>ぷぐま Portfolio</title>
+    <title>ぷぐま Portfolio</title>
 		<meta name="author" content="Pugma"/>
-		<meta name="description" content="ぷぐまの個人サイト (Portfolio) です。" />
+    <meta name="description" content="ぷぐまの個人サイト (Portfolio) です。" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
-		<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/posts/rss.xml" />
 
-		<meta property="og:title" content="ぷぐま Portfolio" />
-		<meta property="og:description" content="ぷぐまの個人サイト (Portfolio)" />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="https://pugma.tech/Pugma.png" />
-		<meta property="og:url" content="https://pugma.tech" />
-	</head>
-		<Header />
-	<body>
-		<main>
-			<slot />
-		</main>
-	</body>
+    <meta property="og:title" content="ぷぐま Portfolio" />
+    <meta property="og:description" content="ぷぐまの個人サイト (Portfolio)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://pugma.tech/Pugma.png" />
+    <meta property="og:url" content="https://pugma.tech" />
+  </head>
+  <Header />
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>
 
-<style>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
 
 		background-color: #FFF7E0;
-	}
+    }
 
-	main {
-		height: calc(100vh - 56px);
-		padding: 8px 15%;
+    main {
+      height: calc(100vh - 56px);
+      padding: 8px 15%;
 
-		overflow-y: scroll;
-	}
-</style>
+      overflow-y: scroll;
+    }
+  </style>

@@ -4,6 +4,8 @@ import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://astro.build/config
 export default defineConfig({
   adapter: cloudflare({
@@ -12,6 +14,11 @@ export default defineConfig({
     },
     imageService: "cloudflare"
   }),
+
   integrations: [icon(), sitemap()],
   site: 'https://pugma.tech',
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
