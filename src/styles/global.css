@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* ===== Design Tokens (Light Theme) ===== */
+@theme {
+  --color-background: #FFF7E0;
+  --color-header: #fff780;
+  --color-link: #0969da;
+  --color-text: #333;
+  --color-border: #ccc;
+  --color-button: #f0f0f0;
+  --color-button-hover: #e0e0e0;
+  --color-icon: #000;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* ===== Dark Theme (System Preference) ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1a1a2e;
+    --color-header: #2a2a4a;
+    --color-link: #70d0ff;
+    --color-text: #e0e0e0;
+    --color-border: #444;
+    --color-button: #2a2a3e;
+    --color-button-hover: #3a3a50;
+    --color-icon: #e0e0e0;
+  }
+}
+
+/* ===== Base Typography ===== */
+@layer base {
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-block: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-block: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-block: 0.5rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-inline-start: 40px;
+  }
+
+  :is(dir, menu, ol, ul) ul {
+    list-style-type: circle;
+  }
+
+  a {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+}

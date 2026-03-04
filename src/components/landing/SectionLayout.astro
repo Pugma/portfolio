@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section>
+  {title === "" ? null : <h2>{title}</h2>}
+  <slot />
+</section>
+
+<style>
+  section {
+    margin: 16px;
+    padding: 16px 24px;
+
+    border: var(--color-border) 1px solid;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+</style>
