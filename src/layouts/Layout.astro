@@ -31,26 +31,21 @@ import "../styles/global.css";
   </body>
 </html>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
 
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
+	background-color: var(--color-background);
+	color: var(--color-text);
+}
 
-		background-color: #FFF7E0;
-    }
+main {
+	height: calc(100vh - 56px);
+	padding: 8px 15%;
 
-    main {
-      height: calc(100vh - 56px);
-      padding: 8px 15%;
-
-      overflow-y: scroll;
-    }
-  </style>
+	overflow-y: auto;
+}
+</style>
