@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
@@ -15,7 +15,7 @@ export default defineConfig({
     imageService: "compile"
   }),
 
-  integrations: [icon(), sitemap()],
+  integrations: [icon({ include: {}, iconDir: 'src/assets' }), sitemap()],
   site: 'https://pugma.tech',
 
   vite: {
