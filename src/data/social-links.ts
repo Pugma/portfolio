@@ -37,9 +37,9 @@ export const socialLinks: SocialLinksData = [
   {
     platform: "サークルブログ記事",
     accountId: "@Pugma",
-    icon: "mdi:link-variant",
+    icon: "traP",
     url: "https://trap.jp/author/Pugma",
-    color: "#000000",
+    color: "#005BAC",
   },
   {
     platform: "paiza 様に寄稿させていただいた記事",
