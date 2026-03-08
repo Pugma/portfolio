@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import OgpCard from "../../components/OgpCard.astro";
 import { getCollection } from "astro:content";
+import { externalPosts } from "../../data/external-posts";
 
 const posts = await getCollection("posts").then((posts) => {
   posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -26,6 +28,17 @@ const posts = await getCollection("posts").then((posts) => {
       <p>記事はまだ投稿されていません</p>
     )
   }
+
+  <section>
+    <h2>外部で公開している記事</h2>
+    <div class="flex flex-col gap-4">
+      {
+        externalPosts.map((post) => (
+          <OgpCard url={post.url} publishedAt={post.publishedAt} />
+        ))
+      }
+    </div>
+  </section>
 </Layout>
 
 <style>
