@@ -42,13 +42,6 @@ export const socialLinks: SocialLinksData = [
     color: "#005BAC",
   },
   {
-    platform: "paiza 様に寄稿させていただいた記事",
-    accountId: "@Pugma",
-    icon: "mdi:link-variant",
-    url: "https://paiza.hatenablog.com/entry/2024/08/22/200539",
-    color: "#000000",
-  },
-  {
     platform: "AtCoder",
     accountId: "@Pugma",
     icon: AtCoder,
@@ -61,5 +54,5 @@ export const socialLinks: SocialLinksData = [
     icon: mixi,
     url: "https://mixi.social/@Pugma",
     color: "#FF9A00",
-  }
+  },
 ];
