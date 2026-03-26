@@ -12,20 +12,20 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.7",
+		"@astrojs/check": "^0.9.8",
 		"@astrojs/cloudflare": "^12.6.13",
 		"@astrojs/rss": "^4.0.17",
 		"@astrojs/sitemap": "^3.7.1",
 		"@iconify-json/mdi": "^1.2.3",
-		"@tailwindcss/vite": "^4.2.1",
+		"@tailwindcss/vite": "^4.2.2",
 		"astro": "^5.18.0",
 		"astro-icon": "^1.1.5",
 		"open-graph-scraper": "^6.11.0",
-		"tailwindcss": "^4.2.1",
+		"tailwindcss": "^4.2.2",
 		"typescript": "^5.9.3"
 	},
 	"devDependencies": {
-		"@iconify-json/simple-icons": "^1.2.73",
+		"@iconify-json/simple-icons": "^1.2.75",
 		"@types/node": "^24.10.4",
 		"sharp": "^0.34.5",
 		"wrangler": "^4.58.0"
