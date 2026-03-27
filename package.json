@@ -28,7 +28,7 @@
 		"@iconify-json/simple-icons": "^1.2.75",
 		"@types/node": "^24.10.4",
 		"sharp": "^0.34.5",
-		"wrangler": "^4.58.0"
+		"wrangler": "^4.77.0"
 	},
 	"packageManager": "pnpm@10.29.2"
 }
