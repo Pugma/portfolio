@@ -17,15 +17,15 @@
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "^3.7.2",
 		"@iconify-json/mdi": "^1.2.3",
-		"@tailwindcss/vite": "^4.2.2",
+		"@tailwindcss/vite": "^4.2.4",
 		"astro": "^5.18.1",
 		"astro-icon": "^1.1.5",
 		"open-graph-scraper": "^6.11.0",
-		"tailwindcss": "^4.2.2",
+		"tailwindcss": "^4.2.4",
 		"typescript": "^5.9.3"
 	},
 	"devDependencies": {
-		"@iconify-json/simple-icons": "^1.2.78",
+		"@iconify-json/simple-icons": "^1.2.79",
 		"@types/node": "^24.10.4",
 		"sharp": "^0.34.5",
 		"wrangler": "^4.77.0"
