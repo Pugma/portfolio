@@ -6,9 +6,9 @@
 		"dev": "astro dev",
 		"check": "astro check",
 		"build": "astro build",
-		"preview": "astro build && wrangler pages dev",
+		"preview": "astro build && wrangler dev",
 		"astro": "astro",
-		"deploy": "astro build && wrangler pages deploy",
+		"deploy": "astro build && wrangler deploy",
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
@@ -28,7 +28,7 @@
 		"@iconify-json/simple-icons": "^1.2.79",
 		"@types/node": "^24.10.4",
 		"sharp": "^0.34.5",
-		"wrangler": "^4.77.0"
+		"wrangler": "^4.85.0"
 	},
 	"packageManager": "pnpm@10.29.2"
 }
