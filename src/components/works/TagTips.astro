@@ -1,0 +1,44 @@
+---
+import { type WorkTags } from "../../data/works";
+
+interface Props {
+  tags: WorkTags;
+}
+
+const { tags } = Astro.props;
+
+const valueLabels = {
+  duration: {
+    "long-term": "長期開発",
+    hackathon: "ハッカソン",
+  },
+  teamSize: {
+    team: "チーム開発",
+    solo: "個人開発",
+  },
+} as const;
+
+const tagValues = (
+  Object.entries(tags) as Array<[keyof WorkTags, WorkTags[keyof WorkTags]]>
+).flatMap(([key, value]) => {
+  if (key === "duration") {
+    return [valueLabels.duration[value as WorkTags["duration"]]];
+  }
+
+  if (key === "teamSize") {
+    return [valueLabels.teamSize[value as WorkTags["teamSize"]]];
+  }
+
+  return value as string[];
+});
+---
+
+<ul class="flex flex-wrap gap-x-0.5 gap-y-1 text-xs p-0">
+  {
+    tagValues.map((value) => (
+      <li class="list-none rounded-full border border-border/70 bg-black/30 px-2 py-1">
+        # {value}
+      </li>
+    ))
+  }
+</ul>
