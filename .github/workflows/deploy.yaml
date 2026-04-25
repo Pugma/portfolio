@@ -5,7 +5,7 @@ on:
     branches:
       - main
   repository_dispatch:
-    types: 
+    types:
       - deploy
   workflow_dispatch:
 
@@ -38,6 +38,6 @@ jobs:
       - name: Deploy to Production
         uses: cloudflare/wrangler-action@v3
         with:
-          command: pages deploy
+          command: deploy
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
