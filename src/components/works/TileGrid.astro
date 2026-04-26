@@ -1,19 +1,28 @@
 ---
 import TileItem from "./TileItem.astro";
-import { works } from "../../data/works";
+import { works, type WorkKey } from "../../data/works";
+
+const workKeys = Object.keys(works) as WorkKey[];
 ---
 
 <div
   class="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] justify-items-center gap-x-4 gap-y-3"
 >
   {
-    works.map((work) => (
-      <TileItem
-        title={work.title}
-        description={work.description}
-        thumbnail={work.thumbnail}
-        tags={work.tags}
-      />
-    ))
+    workKeys.map((key) => {
+      const work = works[key];
+      return (
+        <TileItem
+          workKey={key}
+          title={work.title}
+          description={work.description}
+          thumbnail={work.thumbnail}
+          tags={work.tags}
+          roles={work.roles}
+          links={work.links}
+          image={work.image}
+        />
+      );
+    })
   }
 </div>

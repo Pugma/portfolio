@@ -1,0 +1,33 @@
+---
+import { type WorkRoles } from "../../data/works";
+
+interface Props {
+  roles: WorkRoles;
+}
+
+const { roles } = Astro.props;
+
+const roleGroups = [
+  { label: "現在の担当", items: roles.current },
+  { label: "過去の担当", items: roles.past },
+].filter((group) => group.items.length > 0);
+---
+
+{
+  roleGroups.length > 0 && (
+    <dl class="m-0 grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-4">
+      {roleGroups.map((group) => (
+        <div class="flex flex-col gap-1">
+          <dt class="text-sm opacity-70">{group.label}</dt>
+          <dd class="m-0">
+            <ul class="m-0 p-0 text-sm">
+              {group.items.map((role) => (
+                <li class="list-none">・{role}</li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
