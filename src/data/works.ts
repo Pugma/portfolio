@@ -1,6 +1,7 @@
 import Pugma from "../assets/Pugma.png";
 import traQ from "../assets/traQ.png";
 import traQgazerIcon from "../assets/traQgazer_icon.svg";
+import traQgazerLogo from "../assets/traQgazer_logo.svg";
 
 type Work = {
   title: string;
@@ -51,13 +52,41 @@ export const works = {
       techStack: ["Vue", "TypeScript", "Go"],
     },
     roles: {
-      current: [],
-      past: [],
+      current: ["要件定義", "フロントエンド実装・レビュー", "開発環境整備"],
+      past: [
+        "全体リーダー",
+        "フロントエンドリーダー",
+        "開発日程・工数管理",
+        "フロントエンドリポジトリの管理",
+        "v1 リリースに向けたデプロイ作業",
+      ],
     },
     links: {
-      product: [],
-      source: [],
-      blog: [],
+      product: [{ subLabel: undefined, url: "https://portfolio.trap.jp" }],
+      source: [
+        {
+          subLabel: "外部向け公開ページリポジトリ",
+          url: "https://github.com/traPtitech/traPortfolio-UI",
+        },
+        {
+          subLabel: "内部向け管理ページリポジトリ",
+          url: "https://github.com/traPtitech/traPortfolio-Dashboard",
+        },
+        {
+          subLabel: "バックエンドリポジトリ",
+          url: "https://github.com/traPtitech/traPortfolio",
+        },
+      ],
+      blog: [
+        { subLabel: "リリース記事", url: "https://trap.jp/post/2262/" },
+        { subLabel: undefined, url: "https://trap.jp/post/2304/" },
+        {
+          subLabel: "リリース裏話 (意識したこと)",
+          url: "https://trap.jp/post/2305/",
+        },
+        { subLabel: undefined, url: "https://trap.jp/post/2367/" },
+        { subLabel: undefined, url: "https://trap.jp/post/2419/" },
+      ],
       others: [],
     },
   },
@@ -66,20 +95,28 @@ export const works = {
     description:
       "直近の投稿のうち、設定した文字列を含むものを通知する traQ bot",
     thumbnail: traQgazerIcon,
-    image: [],
+    image: [
+      { alt: "traQ gazer アイコン", src: traQgazerIcon },
+      { alt: "traQ gazer バナー画像", src: traQgazerLogo },
+    ],
     tags: {
       duration: "hackathon",
       teamSize: "team",
       techStack: ["Tailwind CSS", "headless UI"],
     },
     roles: {
-      current: [],
-      past: [],
+      current: ["フロントエンドデザイン / 実装"],
+      past: ["サービス名決定", "ロゴ制作"],
     },
     links: {
       product: [],
-      source: [],
-      blog: [],
+      source: [
+        { subLabel: undefined, url: "https://github.com/traP-jp/traQ-gazer" },
+      ],
+      blog: [
+        { subLabel: "開発時", url: "https://trap.jp/post/1922/" },
+        { subLabel: "リニューアル時", url: "https://trap.jp/post/2345/" },
+      ],
       others: [],
     },
   },
@@ -95,12 +132,22 @@ export const works = {
       techStack: ["Vue", "TypeScript", "Go", "OAuth 2.1", "OIDC 1.0"],
     },
     roles: {
-      current: [],
+      current: [
+        "バックエンド実装",
+        "開発環境整備",
+        "IdP 実装",
+        "コードレビュー",
+      ],
       past: [],
     },
     links: {
       product: [],
-      source: [],
+      source: [
+        {
+          subLabel: "OIDC IdP 基盤",
+          url: "https://github.com/traPtitech/portal-oidc",
+        },
+      ],
       blog: [],
       others: [],
     },
@@ -121,10 +168,12 @@ export const works = {
         "Cloudflare Workers (Pages)",
       ],
     },
-    roles: { current: [], past: [] },
+    roles: { current: ["デザイン", "実装", "デプロイ"], past: [] },
     links: {
-      product: [],
-      source: [],
+      product: [{ subLabel: undefined, url: "https://pugma.tech" }],
+      source: [
+        { subLabel: undefined, url: "https://github.com/Pugma/portfolio" },
+      ],
       blog: [],
       others: [],
     },
@@ -142,7 +191,16 @@ export const works = {
     roles: { current: [], past: [] },
     links: {
       product: [],
-      source: [],
+      source: [
+        {
+          subLabel: "バックエンドリポジトリ",
+          url: "https://github.com/traPtitech/traQ",
+        },
+        {
+          subLabel: "フロントエンドリポジトリ",
+          url: "https://github.com/traPtitech/traQ_S-UI",
+        },
+      ],
       blog: [],
       others: [],
     },
