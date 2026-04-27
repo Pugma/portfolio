@@ -97,6 +97,14 @@ const hasImages = image.length > 0;
       </section>
     )
   }
+  <footer class="flex justify-end">
+    <a
+      href={`/works/${workKey}`}
+      class="inline-block rounded-full border border-border bg-black/30 px-4 py-2 text-sm no-underline focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+    >
+      詳細を見る →
+    </a>
+  </footer>
 </dialog>
 
 <script is:inline define:vars={{ dialogId }}>
