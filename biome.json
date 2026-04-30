@@ -32,6 +32,9 @@
 			"tailwindDirectives": true
 		}
 	},
+	"html": {
+		"experimentalFullSupportEnabled": true
+	},
 	"json": {
 		"formatter": {
 			"indentStyle": "tab"
