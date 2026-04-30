@@ -58,7 +58,7 @@ export const works = {
         "フロントエンドリーダー",
         "開発日程・工数管理",
         "フロントエンドリポジトリの管理",
-        "v1 リリースに向けたデプロイ作業",
+        "v1リリースに向けたデプロイ作業",
       ],
     },
     links: {
@@ -92,8 +92,7 @@ export const works = {
   },
   "traq-gazer": {
     title: "traQ gazer",
-    description:
-      "直近の投稿のうち、設定した文字列を含むものを通知する traQ bot",
+    description: "直近の投稿のうち、設定した文字列を含むものを通知するtraQ bot",
     thumbnail: traQgazerIcon,
     image: [
       { alt: "traQ gazer アイコン", src: traQgazerIcon },
@@ -123,7 +122,7 @@ export const works = {
   "traportal-v2": {
     title: "traPortal v2",
     description:
-      "部員管理システム。新たに OIDC の IdP としても機能するように開発中",
+      "部員管理システム。新たにOIDCのIdPとしても機能するように開発中",
     thumbnail: undefined,
     image: [],
     tags: {
@@ -135,7 +134,7 @@ export const works = {
       current: [
         "バックエンド実装",
         "開発環境整備",
-        "IdP 実装",
+        "IdP実装",
         "コードレビュー",
       ],
       past: [],
@@ -144,7 +143,7 @@ export const works = {
       product: [],
       source: [
         {
-          subLabel: "OIDC IdP 基盤",
+          subLabel: "OIDC IdP基盤",
           url: "https://github.com/traPtitech/portal-oidc",
         },
       ],
