@@ -1,26 +1,136 @@
 ---
-import { type WorkTags } from "../../data/works";
+import {
+  type WorkKey,
+  type WorkLinks,
+  type WorkTags,
+  type WorkRoles,
+} from "../../data/works";
 import TagTips from "./TagTips.astro";
+import WorkRolesSection from "./WorkRoles.astro";
+import WorkLinksSection from "./WorkLinks.astro";
+import WorkImages from "./WorkImages.astro";
 import Pugma from "../../assets/Pugma.png";
 
 interface Props {
+  workKey: WorkKey;
   title: string;
   description: string;
   thumbnail: ImageMetadata | undefined;
   tags: WorkTags;
+  roles: WorkRoles;
+  links: WorkLinks;
+  image: Array<{ alt: string; src: ImageMetadata }>;
 }
 
-const { title, description, thumbnail = Pugma, tags } = Astro.props;
+const {
+  workKey,
+  title,
+  description,
+  thumbnail = Pugma,
+  tags,
+  roles,
+  links,
+  image,
+} = Astro.props;
+
+const dialogId = `work-dialog-${workKey}`;
+const hasRoles = roles.current.length > 0 || roles.past.length > 0;
+const hasLinks = Object.values(links).some((items) => items.length > 0);
+const hasImages = image.length > 0;
 ---
 
 <article
-  class="relative z-0 isolate flex w-full min-h-48 flex-col gap-2 overflow-hidden rounded-2xl border border-border bg-transparent px-4 py-8"
+  class="relative z-0 isolate flex w-full min-h-48 flex-col gap-2 overflow-hidden rounded-2xl border border-border bg-transparent px-4 py-8 focus-within:outline focus-within:-outline-offset-2 focus-within:outline-blue-400"
   style={`--bg-image: url(${thumbnail.src})`}
 >
   <h3 class="m-0">{title}</h3>
   <TagTips tags={tags} />
   <p>{description}</p>
+  <button
+    type="button"
+    class="absolute inset-0 cursor-pointer bg-transparent border-0 focus:outline-none"
+    aria-label={`${title} の詳細を表示`}
+    data-dialog-target={dialogId}
+  >
+  </button>
 </article>
+
+<dialog
+  id={dialogId}
+  class="m-auto rounded-2xl border border-border bg-background text-text p-6 w-[75vw] max-h-[90vh] overflow-y-auto backdrop:bg-black/60 hidden open:flex flex-col gap-4"
+>
+  <header class="flex items-start justify-between gap-4">
+    <h3 class="m-0">{title}</h3>
+    <button
+      type="button"
+      class="cursor-pointer rounded border border-border bg-transparent px-2 py-1 text-sm focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+      data-dialog-close={dialogId}
+      aria-label="閉じる">×</button
+    >
+  </header>
+  <TagTips tags={tags} />
+  <p class="m-0">{description}</p>
+
+  {
+    hasRoles && (
+      <section class="flex flex-col gap-2">
+        <h4 class="m-0 text-base">担当分野</h4>
+        <WorkRolesSection roles={roles} />
+      </section>
+    )
+  }
+
+  {
+    hasLinks && (
+      <section class="flex flex-col gap-2">
+        <h4 class="m-0 text-base">リンク集</h4>
+        <WorkLinksSection links={links} />
+      </section>
+    )
+  }
+
+  {
+    hasImages && (
+      <section class="flex flex-col gap-2">
+        <h4 class="m-0 text-base">画像一覧</h4>
+        <WorkImages images={image} />
+      </section>
+    )
+  }
+  <footer class="flex justify-end">
+    <a
+      href={`/works/${workKey}`}
+      class="inline-block rounded-full border border-border bg-black/30 px-4 py-2 text-sm no-underline focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+    >
+      詳細を見る →
+    </a>
+  </footer>
+</dialog>
+
+<script is:inline define:vars={{ dialogId }}>
+  const dialog = document.getElementById(dialogId);
+  if (dialog instanceof HTMLDialogElement) {
+    document
+      .querySelectorAll(`[data-dialog-target="${dialogId}"]`)
+      .forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          dialog.showModal();
+          document.body.style.overflow = "hidden";
+        });
+      });
+    document
+      .querySelectorAll(`[data-dialog-close="${dialogId}"]`)
+      .forEach((closer) => {
+        closer.addEventListener("click", () => dialog.close());
+      });
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("close", () => {
+      document.body.style.overflow = "";
+    });
+  }
+</script>
 
 <style>
   article::before {

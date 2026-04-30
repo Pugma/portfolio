@@ -1,0 +1,91 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { works, type WorkKey } from "../../data/works";
+import TagTips from "../../components/works/TagTips.astro";
+import WorkRolesSection from "../../components/works/WorkRoles.astro";
+import WorkLinksSection from "../../components/works/WorkLinks.astro";
+import WorkImages from "../../components/works/WorkImages.astro";
+
+export const getStaticPaths = async () => {
+  const entries = await getCollection("works");
+
+  const tsKeys = new Set(Object.keys(works));
+  const mdIds = new Set(entries.map((e) => e.id));
+
+  const missingMd = [...tsKeys].filter((k) => !mdIds.has(k));
+  const missingTs = [...mdIds].filter((k) => !tsKeys.has(k));
+
+  if (missingMd.length || missingTs.length) {
+    throw new Error(
+      `works key mismatch:\n  md missing for: ${missingMd.join(", ") || "(none)"}\n  ts key missing for md: ${missingTs.join(", ") || "(none)"}`,
+    );
+  }
+
+  return entries.map((entry) => ({
+    params: { work: entry.id },
+    props: { entry, work: works[entry.id as WorkKey] },
+  }));
+};
+
+const { entry, work } = Astro.props;
+const { Content } = await render(entry);
+const hasRoles = work.roles.current.length > 0 || work.roles.past.length > 0;
+const hasLinks = Object.values(work.links).some((items) => items.length > 0);
+const hasImages = work.image.length > 0;
+const hasBody = typeof entry.body === "string" && entry.body.trim().length > 0;
+---
+
+<Layout>
+  <article class="flex flex-col gap-8">
+    <header class="flex flex-col gap-3">
+      <h1>{work.title}</h1>
+      <TagTips tags={work.tags} />
+    </header>
+
+    <section
+      class="flex flex-col gap-3 rounded-xl border border-border/70 bg-black/5 p-4"
+    >
+      <h2 class="m-0 text-lg">概要</h2>
+      <p class="m-0">{work.description}</p>
+    </section>
+
+    {
+      hasRoles && (
+        <section class="flex flex-col gap-3">
+          <h2 class="m-0 text-lg">担当分野</h2>
+          <div class="flex flex-col gap-4">
+            <WorkRolesSection roles={work.roles} />
+          </div>
+        </section>
+      )
+    }
+
+    {
+      hasBody && (
+        <section class="flex flex-col gap-3">
+          <h2 class="m-0 text-lg">意識したこと</h2>
+          <Content />
+        </section>
+      )
+    }
+
+    {
+      hasLinks && (
+        <section class="flex flex-col gap-3">
+          <h2 class="m-0 text-lg">リンク集</h2>
+          <WorkLinksSection links={work.links} />
+        </section>
+      )
+    }
+
+    {
+      hasImages && (
+        <section class="flex flex-col gap-3">
+          <h2 class="m-0 text-lg">画像一覧</h2>
+          <WorkImages images={work.image} />
+        </section>
+      )
+    }
+  </article>
+</Layout>

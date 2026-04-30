@@ -11,6 +11,12 @@ const posts = defineCollection({
   }),
 });
 
+const works = defineCollection({
+  loader: glob({ base: "./src/pages/works/contents", pattern: "**/*.md" }),
+  schema: z.strictObject({}),
+});
+
 export const collections = {
   posts,
+  works,
 };
