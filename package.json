@@ -15,13 +15,13 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.8",
-		"@astrojs/cloudflare": "^13.1.10",
+		"@astrojs/check": "^0.9.9",
+		"@astrojs/cloudflare": "^13.2.2",
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "^3.7.2",
 		"@iconify-json/mdi": "^1.2.3",
 		"@tailwindcss/vite": "^4.2.4",
-		"astro": "^6.1.6",
+		"astro": "^6.1.10",
 		"astro-icon": "^1.1.5",
 		"open-graph-scraper": "^6.11.0",
 		"tailwindcss": "^4.2.4",
@@ -29,7 +29,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.13",
-		"@iconify-json/simple-icons": "^1.2.79",
+		"@iconify-json/simple-icons": "^1.2.80",
 		"@types/node": "^25.6.0",
 		"sharp": "^0.34.5",
 		"wrangler": "^4.86.0"
