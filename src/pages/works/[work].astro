@@ -1,11 +1,14 @@
 ---
+
+
+
 import { getCollection, render } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import { works, type WorkKey } from "../../data/works";
 import TagTips from "../../components/works/TagTips.astro";
-import WorkRolesSection from "../../components/works/WorkRoles.astro";
-import WorkLinksSection from "../../components/works/WorkLinks.astro";
 import WorkImages from "../../components/works/WorkImages.astro";
+import WorkLinksSection from "../../components/works/WorkLinks.astro";
+import WorkRolesSection from "../../components/works/WorkRoles.astro";
+import { type WorkKey, works } from "../../data/works";
+import Layout from "../../layouts/Layout.astro";
 
 export const getStaticPaths = async () => {
   const entries = await getCollection("works");
