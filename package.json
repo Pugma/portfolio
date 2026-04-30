@@ -6,6 +6,9 @@
 		"dev": "astro dev",
 		"check": "astro check",
 		"build": "astro build",
+		"biome": "biome check --write",
+		"fmt": "biome format --write",
+		"lint": "biome lint --write",
 		"preview": "astro build && wrangler dev",
 		"astro": "astro",
 		"deploy": "astro build && wrangler deploy",
@@ -25,6 +28,7 @@
 		"typescript": "^5.9.3"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "2.4.13",
 		"@iconify-json/simple-icons": "^1.2.79",
 		"@types/node": "^25.6.0",
 		"sharp": "^0.34.5",
