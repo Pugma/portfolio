@@ -1,8 +1,11 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import OgpCard from "../../components/OgpCard.astro";
+
+
+
 import { getCollection } from "astro:content";
+import OgpCard from "../../components/OgpCard.astro";
 import { externalPosts } from "../../data/external-posts";
+import Layout from "../../layouts/Layout.astro";
 
 const posts = await getCollection("posts").then((posts) => {
   posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());

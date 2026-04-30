@@ -1,15 +1,13 @@
 ---
-import {
-  type WorkKey,
-  type WorkLinks,
-  type WorkTags,
-  type WorkRoles,
-} from "../../data/works";
-import TagTips from "./TagTips.astro";
-import WorkRolesSection from "./WorkRoles.astro";
-import WorkLinksSection from "./WorkLinks.astro";
-import WorkImages from "./WorkImages.astro";
+
+
+
 import Pugma from "../../assets/Pugma.png";
+import type { WorkKey, WorkLinks, WorkRoles, WorkTags } from "../../data/works";
+import TagTips from "./TagTips.astro";
+import WorkImages from "./WorkImages.astro";
+import WorkLinksSection from "./WorkLinks.astro";
+import WorkRolesSection from "./WorkRoles.astro";
 
 interface Props {
   workKey: WorkKey;
