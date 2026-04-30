@@ -1,0 +1,55 @@
+---
+import { type WorkLinks } from "../../data/works";
+
+interface Props {
+  links: WorkLinks;
+}
+
+const { links } = Astro.props;
+
+const linkCategoryLabels = {
+  product: "作品リンク",
+  blog: "ブログ",
+  source: "ソースコード",
+  others: "その他",
+} as const satisfies Record<keyof WorkLinks, string>;
+
+const linkCategories = (
+  Object.keys(linkCategoryLabels) as Array<keyof WorkLinks>
+).flatMap((key) => {
+  const items = links[key];
+  if (items.length === 0) return [];
+  return [{ key, label: linkCategoryLabels[key], items }];
+});
+---
+
+{
+  linkCategories.length > 0 && (
+    <dl class="m-0 flex flex-col gap-3">
+      {linkCategories.map((category) => (
+        <div class="flex flex-col gap-1">
+          <dt class="text-sm opacity-70">{category.label}</dt>
+          <dd class="m-0">
+            <ul class="m-0 table border-separate border-spacing-y-1 p-0 text-sm">
+              {category.items.map((item) => (
+                <li class="list-none table-row">
+                  <span class="table-cell pl-4 pr-2 opacity-80 whitespace-nowrap align-top">
+                    {item.subLabel ?? "URL"}:
+                  </span>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="table-cell underline rounded break-all align-top focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+                  >
+                    {item.url}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
