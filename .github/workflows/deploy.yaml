@@ -17,17 +17,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Checkout content repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: Pugma/blog-content
           path: ./src/pages/posts/contents
           token: ${{ secrets.BLOG_CONTENT_GITHUB_PAT }}
 
       - name: Setup mise
-        uses: jdx/mise-action@v3
+        uses: jdx/mise-action@5228313ee0372e111a38da051671ca30fc5a96db # v3.6.3
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -36,7 +36,7 @@ jobs:
         run: pnpm build
 
       - name: Deploy to Production
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3.15.0
         with:
           command: deploy
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
