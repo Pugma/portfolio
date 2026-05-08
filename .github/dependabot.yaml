@@ -10,3 +10,8 @@ updates:
       patch-updates:
         update-types:
           - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
