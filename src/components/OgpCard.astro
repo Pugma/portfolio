@@ -6,10 +6,9 @@ import ogs from "open-graph-scraper";
 
 interface Props {
   url: string;
-  publishedAt: string;
 }
 
-const { url, publishedAt } = Astro.props;
+const { url } = Astro.props;
 
 const { result } = await ogs({ url });
 const title = result.ogTitle ?? url;
@@ -22,7 +21,6 @@ const image = result.ogImage?.[0]?.url;
   <div class="flex flex-col grow gap-2 min-w-0">
     <h3 class="ogp-title">{title}</h3>
     {description && <p class="ogp-description">{description}</p>}
-    <span class="ogp-source">{publishedAt}</span>
   </div>
 </a>
 
