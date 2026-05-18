@@ -11,6 +11,10 @@ export default defineConfig({
     prerenderEnvironment: "node",
   }),
 
+  image: {
+    domains: ["trap.jp", "paiza.hatenablog.com", "cdn.image.st-hatena.com"],
+  },
+
   integrations: [icon({ include: {}, iconDir: "src/assets" }), sitemap()],
   site: "https://pugma.tech",
 
