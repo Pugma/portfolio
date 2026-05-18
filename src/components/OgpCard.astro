@@ -2,6 +2,7 @@
 
 
 
+import { Image } from "astro:assets";
 import ogs from "open-graph-scraper";
 
 interface Props {
@@ -17,7 +18,7 @@ const image = result.ogImage?.[0]?.url;
 ---
 
 <a href={url} target="_blank" rel="noopener noreferrer" class="ogp-card">
-  {image && <img src={image} alt="" class="ogp-image" />}
+  {image && <Image src={image} inferSize={true} alt="" class="ogp-image" />}
   <div class="flex flex-col grow gap-2 min-w-0">
     <h3 class="ogp-title">{title}</h3>
     {description && <p class="ogp-description">{description}</p>}
