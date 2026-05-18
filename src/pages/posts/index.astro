@@ -36,8 +36,17 @@ const posts = await getCollection("posts").then((posts) => {
     <h2>外部で公開している記事</h2>
     <div class="flex flex-col gap-4">
       {
-        externalPosts.map((post) => (
-          <OgpCard url={post.url} publishedAt={post.publishedAt} />
+        externalPosts.map((posts) => (
+          <h3>{posts.publishedAt}</h3>
+          <ul class="flex flex-col gap-2 p-0">
+          {
+            posts.url.reverse().map((url) => (
+              <li class="list-none">
+                <OgpCard url={url} />
+              </li>
+            ))
+          }
+          </ul>
         ))
       }
     </div>
