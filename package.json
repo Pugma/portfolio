@@ -1,38 +1,38 @@
 {
-	"name": "portfolio",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"check": "astro check",
-		"build": "astro build",
-		"biome": "biome check --write",
-		"fmt": "biome format --write",
-		"lint": "biome lint --write",
-		"preview": "astro build && wrangler dev",
-		"astro": "astro",
-		"deploy": "astro build && wrangler deploy",
-		"cf-typegen": "wrangler types"
-	},
-	"dependencies": {
-		"@astrojs/check": "^0.9.9",
-		"@astrojs/cloudflare": "^13.5.1",
-		"@astrojs/rss": "^4.0.18",
-		"@astrojs/sitemap": "^3.7.2",
-		"@iconify-json/mdi": "^1.2.3",
-		"@tailwindcss/vite": "^4.3.0",
-		"astro": "^6.3.2",
-		"astro-icon": "^1.1.5",
-		"open-graph-scraper": "^6.11.0",
-		"tailwindcss": "^4.3.0",
-		"typescript": "^6.0.3"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.4.15",
-		"@iconify-json/simple-icons": "^1.2.82",
-		"@types/node": "^25.8.0",
-		"sharp": "^0.34.5",
-		"wrangler": "^4.90.1"
-	},
-	"packageManager": "pnpm@10.29.2"
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "biome": "biome check --write",
+    "fmt": "biome format --write",
+    "lint": "biome lint --write",
+    "preview": "astro build && wrangler dev",
+    "astro": "astro",
+    "deploy": "astro build && wrangler deploy",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/cloudflare": "^13.5.1",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "@iconify-json/mdi": "^1.2.3",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.3.2",
+    "astro-icon": "^1.1.5",
+    "open-graph-scraper": "^6.11.0",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "@iconify-json/simple-icons": "^1.2.82",
+    "@types/node": "^25.8.0",
+    "sharp": "^0.34.5",
+    "wrangler": "^4.90.1"
+  },
+  "packageManager": "pnpm@11.1.3"
 }
