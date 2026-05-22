@@ -204,6 +204,38 @@ export const works = {
       others: [],
     },
   },
+  "k8s-manifest": {
+    title: "traP kubernetes manifest",
+    description: "traP部内で運用しているKubernetes Clusterのmanifest",
+    thumbnail: undefined,
+    image: [],
+    tags: {
+      duration: "long-term",
+      teamSize: "team",
+      techStack: ["k3s", "Argo CD", "helm", "traefik"],
+    },
+    roles: {
+      current: ["一部サービスのサーバー移行", "依存関係更新", "PRレビュー"],
+      past: ["Argo CD Pull Request Generator利用リポジトリの拡大"],
+    },
+    links: {
+      product: [],
+      source: [
+        {
+          subLabel: undefined,
+          url: "https://github.com/traPtitech/manifest",
+        },
+      ],
+      blog: [
+        {
+          subLabel:
+            "Argo CD Pull Request Generatorを用いたpreview環境作成について",
+          url: "https://trap.jp/post/2419/",
+        },
+      ],
+      others: [],
+    },
+  },
 } satisfies Record<string, Work>;
 
 export type WorkKey = keyof typeof works;
