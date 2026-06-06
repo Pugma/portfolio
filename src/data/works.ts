@@ -1,4 +1,5 @@
 import Pugma from "../assets/Pugma.png";
+import traP2024 from "../assets/traP_welcome_2024.jpeg";
 import traQ from "../assets/traQ.png";
 import traQgazerIcon from "../assets/traQgazer_icon.svg";
 import traQgazerLogo from "../assets/traQgazer_logo.svg";
@@ -234,6 +235,38 @@ export const works = {
         },
       ],
       others: [],
+    },
+  },
+  "trap-welcome-line": {
+    title: "2024年度 traP新歓LINEアカウント Bot",
+    description:
+      "2024年度traP新歓LINEアカウント。受信したメッセージをtraQへ転送する機能や、特定のメッセージを部員だけに送り分ける機能をもつ",
+    thumbnail: traP2024,
+    image: [],
+    tags: {
+      duration: "long-term",
+      teamSize: "team",
+      techStack: ["Vue", "TypeScript", "Go", "echo"],
+    },
+    roles: {
+      current: [],
+      past: [
+        "要件定義",
+        "受信メッセージのtraQへの転送機能実装",
+        "メッセージの送り先を分けるための部員認証機能実装",
+        "簡易的な管理画面・メトリクスの実装",
+      ],
+    },
+    links: {
+      product: [],
+      source: [],
+      blog: [],
+      others: [
+        {
+          subLabel: "当時利用したアカウント",
+          url: "https://page.line.me/012hpjhf",
+        },
+      ],
     },
   },
 } satisfies Record<string, Work>;
