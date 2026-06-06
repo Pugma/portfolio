@@ -55,4 +55,11 @@ export const socialLinks: SocialLinksData = [
     url: "https://mixi.social/@Pugma",
     color: "#FF9A00",
   },
+  {
+    platform: "connpass",
+    accountId: "@Pugma",
+    icon: "connpass",
+    url: "https://connpass.com/user/Pugma/",
+    color: "#343431",
+  },
 ];
