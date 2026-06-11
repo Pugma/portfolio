@@ -32,7 +32,7 @@
     "@iconify-json/simple-icons": "^1.2.84",
     "@types/node": "^25.9.1",
     "sharp": "^0.34.5",
-    "wrangler": "^4.95.0"
+    "wrangler": "^4.98.0"
   },
   "packageManager": "pnpm@11.1.3"
 }
