@@ -31,7 +31,7 @@
     "@biomejs/biome": "2.5.0",
     "@iconify-json/simple-icons": "^1.2.86",
     "@types/node": "^25.9.3",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.1",
     "wrangler": "^4.100.0"
   },
   "packageManager": "pnpm@11.1.3"
