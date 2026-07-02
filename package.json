@@ -28,8 +28,8 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.0",
-    "@iconify-json/simple-icons": "^1.2.86",
+    "@biomejs/biome": "2.5.1",
+    "@iconify-json/simple-icons": "^1.2.87",
     "@types/node": "^26.0.1",
     "sharp": "^0.34.5",
     "wrangler": "^4.100.0"
