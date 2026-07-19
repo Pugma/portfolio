@@ -12,6 +12,7 @@
     "preview": "astro build && wrangler dev",
     "astro": "astro",
     "deploy": "astro build && wrangler deploy",
+    "deploy:dry-run": "astro build && wrangler deploy --dry-run",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
