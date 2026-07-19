@@ -12,8 +12,15 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
+    environment:
+      name: production
+      url: ${{ vars.DEPLOY_URL }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
