@@ -9,9 +9,19 @@ updates:
       default-days: 3
     open-pull-requests-limit: 10
     groups:
+      cloudflare-runtime:
+        patterns:
+          - "@astrojs/cloudflare"
+          - wrangler
+        update-types:
+          - minor
+          - patch
       patch-updates:
         update-types:
           - patch
+        exclude-patterns:
+          - "@astrojs/cloudflare"
+          - wrangler
 
   - package-ecosystem: github-actions
     directory: /
