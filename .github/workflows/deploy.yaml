@@ -18,6 +18,9 @@ concurrency:
 
 jobs:
   deploy:
+    environment:
+      name: production
+      url: ${{ vars.DEPLOY_URL }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
