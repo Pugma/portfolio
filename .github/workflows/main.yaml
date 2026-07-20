@@ -15,6 +15,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  MISE_LOCKED: "1"
+  MISE_LOCKED_VERIFY_PROVENANCE: "1"
+
 jobs:
   fetch-deps:
     name: Fetch dependencies
