@@ -3,6 +3,10 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
+import browserslist from "browserslist";
+import { browserslistToTargets } from "lightningcss";
+
+const cssTargets = browserslistToTargets(browserslist());
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +23,10 @@ export default defineConfig({
   site: "https://pugma.tech",
 
   vite: {
+    css: {
+      transformer: "lightningcss",
+      lightningcss: { targets: cssTargets },
+    },
     plugins: [tailwindcss()],
   },
 });
