@@ -7,6 +7,14 @@ ci:
     # LHCI defaults to the first five discovered pages. Zero removes the cap.
     maxAutodiscoverUrls: 0
     numberOfRuns: 3
+    settings:
+      formFactor: mobile
+      screenEmulation:
+        mobile: true
+        width: 412
+        height: 823
+        deviceScaleFactor: 1.75
+        disabled: false
 
   assert:
     preset: lighthouse:recommended
@@ -45,4 +53,4 @@ ci:
 
   upload:
     target: filesystem
-    outputDir: ./lighthouse-reports
+    outputDir: ./lighthouse-reports/smartphone

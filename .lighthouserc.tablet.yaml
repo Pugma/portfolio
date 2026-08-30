@@ -1,0 +1,15 @@
+ci:
+  extends: ./.lighthouserc.yaml
+  collect:
+    # Lighthouse has no tablet form factor. Keep the conservative mobile
+    # scoring and throttling while using a tablet-sized touch viewport.
+    settings:
+      formFactor: mobile
+      screenEmulation:
+        mobile: true
+        width: 768
+        height: 1024
+        deviceScaleFactor: 2
+        disabled: false
+  upload:
+    outputDir: ./lighthouse-reports/tablet
