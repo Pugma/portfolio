@@ -40,7 +40,7 @@ const posts = await getCollection("posts").then((posts) => {
           <h3>{posts.publishedAt}</h3>
           <ul class="flex flex-col gap-2 p-0">
           {
-            posts.url.reverse().map((url) => (
+            posts.url.toReversed().map((url) => (
               <li class="list-none">
                 <OgpCard url={url} />
               </li>
