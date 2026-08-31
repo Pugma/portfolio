@@ -1,0 +1,56 @@
+ci:
+  collect:
+    staticDistDir: ./dist/client
+    # Temporarily skip internal content-entry HTML under `works/contents/**`
+    # (depth 3), which currently includes blank pages. Public routes are depth 2 or less.
+    staticDirFileDiscoveryDepth: 2
+    # LHCI defaults to the first five discovered pages. Zero removes the cap.
+    maxAutodiscoverUrls: 0
+    numberOfRuns: 3
+    settings:
+      formFactor: mobile
+      screenEmulation:
+        mobile: true
+        width: 412
+        height: 823
+        deviceScaleFactor: 1.75
+        disabled: false
+
+  assert:
+    preset: lighthouse:recommended
+    aggregationMethod: median-run
+    assertions:
+      "categories:performance":
+        - error
+        - minScore: 0.9
+          aggregationMethod: median
+      "categories:accessibility":
+        - error
+        # Require 100 in every run, not only in the median run.
+        - minScore: 1
+          aggregationMethod: pessimistic
+      "categories:best-practices":
+        - error
+        - minScore: 0.9
+          aggregationMethod: median
+      "categories:seo":
+        - error
+        - minScore: 0.9
+          aggregationMethod: median
+
+      # Keep known issues visible while establishing the initial CI baseline.
+      image-delivery-insight: warn
+      image-size-responsive: warn
+      lcp-discovery-insight: warn
+      lcp-lazy-loaded: warn
+      network-dependency-tree-insight: warn
+      uses-optimized-images:
+        - warn
+        - maxLength: 0
+      uses-responsive-images:
+        - warn
+        - maxLength: 0
+
+  upload:
+    target: filesystem
+    outputDir: ./lighthouse-reports/smartphone

@@ -90,3 +90,60 @@ jobs:
         run: pnpm install --offline --frozen-lockfile
       - name: Run deploy dry run
         run: pnpm deploy:dry-run
+      - name: Upload Lighthouse site
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: lighthouse-site
+          path: dist/client/
+          if-no-files-found: error
+
+  lighthouse:
+    name: Lighthouse (${{ matrix.profile }})
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - profile: smartphone
+            lhci_config: ./.lighthouserc.yaml
+          - profile: tablet
+            lhci_config: ./.lighthouserc.tablet.yaml
+          - profile: desktop
+            lhci_config: ./.lighthouserc.desktop.yaml
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: jdx/mise-action@3c2e0cf82a5b2e5249f0d3635a4d83d0ae861518 # v4.2.5
+      - name: Download Lighthouse site
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: lighthouse-site
+          path: dist/client/
+      - name: Run Lighthouse healthcheck
+        run: >-
+          lhci healthcheck
+          --config=${{ matrix.lhci_config }}
+          --fatal
+      - name: Collect Lighthouse reports
+        id: lighthouse_collect
+        run: >-
+          lhci collect
+          --config=${{ matrix.lhci_config }}
+      - name: Assert Lighthouse results
+        if: ${{ steps.lighthouse_collect.outcome == 'success' }}
+        run: >-
+          lhci assert
+          --config=${{ matrix.lhci_config }}
+      - name: Export Lighthouse reports
+        if: ${{ !cancelled() && steps.lighthouse_collect.outcome != 'skipped' }}
+        run: >-
+          lhci upload
+          --config=${{ matrix.lhci_config }}
+      - name: Upload Lighthouse reports
+        if: ${{ !cancelled() && steps.lighthouse_collect.outcome != 'skipped' }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: lighthouse-reports-${{ matrix.profile }}
+          path: lighthouse-reports/${{ matrix.profile }}/
+          if-no-files-found: error
