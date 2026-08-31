@@ -1,9 +1,8 @@
 ci:
   collect:
     staticDistDir: ./dist/client
-    # Temporarily skip internal content-entry HTML under `works/contents/**`
-    # (depth 3), which currently includes blank pages. Public routes are depth 2 or less.
-    staticDirFileDiscoveryDepth: 2
+    # Audit all generated HTML regardless of route depth (`.inf` is YAML infinity).
+    staticDirFileDiscoveryDepth: .inf
     # LHCI defaults to the first five discovered pages. Zero removes the cap.
     maxAutodiscoverUrls: 0
     numberOfRuns: 3
