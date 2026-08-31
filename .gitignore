@@ -29,7 +29,7 @@ pnpm-debug.log*
 !.dev.vars.example
 !.env.example
 
-src/pages/posts/contents
+src/content/posts
 
 # Lighthouse CI
 .lighthouseci/
