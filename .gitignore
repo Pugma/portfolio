@@ -30,3 +30,7 @@ pnpm-debug.log*
 !.env.example
 
 src/pages/posts/contents
+
+# Lighthouse CI
+.lighthouseci/
+lighthouse-reports/
