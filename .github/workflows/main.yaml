@@ -76,8 +76,11 @@ jobs:
           fail-on-cache-miss: true
       - name: Install dependencies
         run: pnpm install --offline --frozen-lockfile
-      - name: Run check
-        run: pnpm check
+      - parallel:
+          - name: Check Cloudflare types
+            run: pnpm exec wrangler types --check
+          - name: Run check
+            run: pnpm check
 
   build:
     name: Build
