@@ -15,10 +15,12 @@ export const getStaticPaths = async () => {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const thumbnail = getPostThumbnail(post.id);
+const description = post.body?.slice(0, 100) ?? post.data.title;
 ---
 
 <Layout
   pageTitle={post.data.title}
+  description={description}
   image={thumbnail?.src}
   type="article"
 >
