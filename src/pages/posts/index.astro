@@ -1,10 +1,8 @@
 ---
-
-
-
 import { getCollection } from "astro:content";
 import OgpCard from "../../components/OgpCard.astro";
 import { externalPosts } from "../../data/external-posts";
+import { getPostThumbnail } from "../../lib/post-thumbnail";
 import Layout from "../../layouts/Layout.astro";
 
 const posts = await getCollection("posts").then((posts) => {
@@ -13,7 +11,10 @@ const posts = await getCollection("posts").then((posts) => {
 });
 ---
 
-<Layout>
+<Layout
+  pageTitle="投稿一覧"
+  description="ぷぐまが公開した記事の一覧です。"
+>
   <h1>Posts</h1>
   {
     posts.length ? (

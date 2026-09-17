@@ -1,7 +1,4 @@
 ---
-
-
-
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
@@ -18,7 +15,10 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout>
+<Layout
+  pageTitle={post.data.title}
+  type="article"
+>
   <h1>{post.data.title}</h1>
   <p>公開日: {post.data.date.toISOString().split("T")[0]}</p>
   {
