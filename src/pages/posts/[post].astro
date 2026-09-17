@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import { getPostThumbnail } from "../../lib/post-thumbnail";
 import Layout from "../../layouts/Layout.astro";
 
 export const getStaticPaths = async () => {
@@ -13,10 +14,12 @@ export const getStaticPaths = async () => {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const thumbnail = getPostThumbnail(post.id);
 ---
 
 <Layout
   pageTitle={post.data.title}
+  image={thumbnail?.src}
   type="article"
 >
   <h1>{post.data.title}</h1>
