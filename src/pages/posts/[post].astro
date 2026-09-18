@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import { getPostThumbnail } from "../../lib/post-thumbnail";
+import MarkdownContent from "../../components/MarkdownContent.astro";
 import Layout from "../../layouts/Layout.astro";
+import { getPostThumbnail } from "../../lib/post-thumbnail";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("posts");
@@ -32,5 +33,7 @@ const description = post.body?.slice(0, 100) ?? post.data.title;
     )
   }
 
-  <Content />
+  <MarkdownContent>
+    <Content />
+  </MarkdownContent>
 </Layout>
