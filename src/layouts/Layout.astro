@@ -1,6 +1,25 @@
 ---
 import Header from "../components/header.astro";
 import "../styles/global.css";
+
+interface Props {
+  pageTitle?: string;
+  description?: string;
+  image?: string;
+  type?: "article" | "website";
+}
+
+const {
+  pageTitle,
+  description = "ぷぐまの個人サイト (Portfolio) です。",
+  image = "/Pugma.png",
+  type = "website",
+} = Astro.props;
+
+const title = pageTitle ? `${pageTitle} | ぷぐま Portfolio` : "ぷぐま Portfolio";
+const site = Astro.site ?? Astro.url;
+const pageUrl = new URL(Astro.url.pathname, site);
+const imageUrl = new URL(image, site);
 ---
 
 <!doctype html>
@@ -8,9 +27,9 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
 
-    <title>ぷぐま Portfolio</title>
+    <title>{title}</title>
     <meta name="author" content="Pugma" />
-    <meta name="description" content="ぷぐまの個人サイト (Portfolio) です。" />
+    <meta name="description" content={description} />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
@@ -22,11 +41,11 @@ import "../styles/global.css";
       href="/posts/rss.xml"
     />
 
-    <meta property="og:title" content="ぷぐま Portfolio" />
-    <meta property="og:description" content="ぷぐまの個人サイト (Portfolio)" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pugma.tech/Pugma.png" />
-    <meta property="og:url" content="https://pugma.tech" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:url" content={pageUrl} />
   </head>
   <body>
     <Header />

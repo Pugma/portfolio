@@ -1,8 +1,6 @@
 ---
-
-
-
 import { getCollection, render } from "astro:content";
+import { getPostThumbnail } from "../../lib/post-thumbnail";
 import Layout from "../../layouts/Layout.astro";
 
 export const getStaticPaths = async () => {
@@ -16,9 +14,16 @@ export const getStaticPaths = async () => {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const thumbnail = getPostThumbnail(post.id);
+const description = post.body?.slice(0, 100) ?? post.data.title;
 ---
 
-<Layout>
+<Layout
+  pageTitle={post.data.title}
+  description={description}
+  image={thumbnail?.src}
+  type="article"
+>
   <h1>{post.data.title}</h1>
   <p>公開日: {post.data.date.toISOString().split("T")[0]}</p>
   {

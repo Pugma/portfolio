@@ -1,7 +1,4 @@
 ---
-
-
-
 import { getCollection, render } from "astro:content";
 import TagTips from "../../components/works/TagTips.astro";
 import WorkImages from "../../components/works/WorkImages.astro";
@@ -37,9 +34,14 @@ const hasRoles = work.roles.current.length > 0 || work.roles.past.length > 0;
 const hasLinks = Object.values(work.links).some((items) => items.length > 0);
 const hasImages = work.image.length > 0;
 const hasBody = typeof entry.body === "string" && entry.body.trim().length > 0;
+const ogImage = work.thumbnail?.src;
 ---
 
-<Layout>
+<Layout
+  pageTitle={work.title}
+  description={work.description}
+  image={ogImage}
+>
   <article class="flex flex-col gap-8">
     <header class="flex flex-col gap-3">
       <h1>{work.title}</h1>

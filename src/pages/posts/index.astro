@@ -1,32 +1,48 @@
 ---
-
-
-
 import { getCollection } from "astro:content";
-import OgpCard from "../../components/OgpCard.astro";
+import PostCard from "../../components/PostCard.astro";
 import { externalPosts } from "../../data/external-posts";
+import { getOgpPreview } from "../../lib/ogp";
+import { getPostThumbnail } from "../../lib/post-thumbnail";
 import Layout from "../../layouts/Layout.astro";
 
 const posts = await getCollection("posts").then((posts) => {
   posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   return posts;
 });
+
+const externalPostPreviews = await Promise.all(
+  externalPosts.map(async ({ publishedAt, url }) => ({
+    publishedAt,
+    entries: await Promise.all(url.toReversed().map(getOgpPreview)),
+  })),
+);
+
 ---
 
-<Layout>
+<Layout
+  pageTitle="投稿一覧"
+  description="ぷぐまが公開した記事の一覧です。"
+>
   <h1>Posts</h1>
   {
     posts.length ? (
-      posts.map((post) => (
-        <div class="post-preview">
-          <a href={`/posts/${post.data.date.toISOString().split("T")[0]}`}>
-            <h3>
-              {post.data.date.toISOString().split("T")[0]} - {post.data.title}
-            </h3>
-            <p>{post.body?.slice(0, 100)}...</p>
-          </a>
-        </div>
-      ))
+      <div class="flex flex-col gap-2">
+        {posts.map((post) => {
+          const thumbnail = getPostThumbnail(post.id);
+          const date = post.data.date.toISOString().split("T")[0];
+
+          return (
+            <a href={`/posts/${date}`} class="post-card-link">
+              <PostCard
+                title={`${date} - ${post.data.title}`}
+                description={`${post.body?.slice(0, 100)}...`}
+                image={thumbnail}
+              />
+            </a>
+          );
+        })}
+      </div>
     ) : (
       <p>記事はまだ投稿されていません</p>
     )
@@ -36,13 +52,24 @@ const posts = await getCollection("posts").then((posts) => {
     <h2>外部で公開している記事</h2>
     <div class="flex flex-col gap-4">
       {
-        externalPosts.map((posts) => (
-          <h3>{posts.publishedAt}</h3>
+        externalPostPreviews.map(({ publishedAt, entries }) => (
+          <h3>{publishedAt}</h3>
           <ul class="flex flex-col gap-2 p-0">
           {
-            posts.url.toReversed().map((url) => (
+            entries.map(({ url, title, description, image }) => (
               <li class="list-none">
-                <OgpCard url={url} />
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="post-card-link"
+                >
+                  <PostCard
+                    title={title}
+                    description={description}
+                    image={image}
+                  />
+                </a>
               </li>
             ))
           }
@@ -54,19 +81,12 @@ const posts = await getCollection("posts").then((posts) => {
 </Layout>
 
 <style>
-  .post-preview {
-    padding: 16px 32px;
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    margin-bottom: 24px;
-  }
-
-  .post-preview a {
-    text-decoration: none;
+  a.post-card-link,
+  a.post-card-link:visited,
+  a.post-card-link:hover,
+  a.post-card-link:active {
+    display: block;
     color: inherit;
-  }
-
-  .post-preview a:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 </style>
