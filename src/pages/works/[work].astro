@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import MarkdownContent from "../../components/MarkdownContent.astro";
 import TagTips from "../../components/works/TagTips.astro";
 import WorkImages from "../../components/works/WorkImages.astro";
 import WorkLinksSection from "../../components/works/WorkLinks.astro";
@@ -70,7 +71,9 @@ const ogImage = work.thumbnail?.src;
       hasBody && (
         <section class="flex flex-col gap-3">
           <h2 class="m-0 text-lg">意識したこと</h2>
-          <Content />
+          <MarkdownContent>
+            <Content />
+          </MarkdownContent>
         </section>
       )
     }

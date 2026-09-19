@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import { getPostThumbnail } from "../../lib/post-thumbnail";
+import MarkdownContent from "../../components/MarkdownContent.astro";
 import Layout from "../../layouts/Layout.astro";
+import { getPostThumbnail } from "../../lib/post-thumbnail";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("posts");
@@ -24,13 +25,23 @@ const description = post.body?.slice(0, 100) ?? post.data.title;
   image={thumbnail?.src}
   type="article"
 >
-  <h1>{post.data.title}</h1>
-  <p>公開日: {post.data.date.toISOString().split("T")[0]}</p>
-  {
-    post.data.updatedDate && (
-      <p>更新日: {post.data.updatedDate.toISOString().split("T")[0]}</p>
-    )
-  }
+  <article class="flex flex-col gap-6">
+    <header class="flex flex-col gap-3">
+      <h1 class="m-0">{post.data.title}</h1>
+      <div class="flex flex-col gap-1 text-sm opacity-70">
+        <p class="m-0">公開日: {post.data.date.toISOString().split("T")[0]}</p>
+        {
+          post.data.updatedDate && (
+            <p class="m-0">
+              更新日: {post.data.updatedDate.toISOString().split("T")[0]}
+            </p>
+          )
+        }
+      </div>
+    </header>
 
-  <Content />
+    <MarkdownContent>
+      <Content />
+    </MarkdownContent>
+  </article>
 </Layout>
