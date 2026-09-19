@@ -1,8 +1,6 @@
 ---
-
-
-
 import { Icon } from "astro-icon/components";
+import { isFixtureEnabled } from "../lib/fixtures";
 ---
 
 <header>
@@ -28,6 +26,15 @@ import { Icon } from "astro-icon/components";
     >
       Posts
     </a>
+    {isFixtureEnabled && (
+      <a
+        href="/fixtures/markdown-showcase"
+        class={Astro.url.pathname.startsWith("/fixtures/") ? "active" : undefined}
+        aria-current={Astro.url.pathname.startsWith("/fixtures/") ? "page" : undefined}
+      >
+        Fixtures
+      </a>
+    )}
   </nav>
   <div class="actions">
     <a
