@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/cloudflare": "^14.2.3",
+    "@astrojs/cloudflare": "^14.3.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@iconify-json/mdi": "^1.2.3",
@@ -38,7 +38,7 @@
     "browserslist": "^4.28.8",
     "lightningcss": "^1.33.0",
     "sharp": "^0.35.4",
-    "wrangler": "^4.125.0"
+    "wrangler": "^4.132.0"
   },
   "packageManager": "pnpm@12.0.0"
 }
