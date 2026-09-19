@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from "astro:content";
+import MarkdownContent from "../../components/MarkdownContent.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export const getStaticPaths = async () => {
+  if (!import.meta.env.DEV) {
+    return [];
+  }
+
+  const fixtures = await getCollection("fixtures");
+
+  return fixtures.map((fixture) => ({
+    params: { fixture: fixture.id },
+    props: { fixture },
+  }));
+};
+
+const { fixture } = Astro.props;
+const { Content } = await render(fixture);
+---
+
+<Layout pageTitle={fixture.data.title} description="Markdown の表示確認用 fixture">
+  <article class="flex flex-col gap-6">
+    <header>
+      <h1 class="m-0">{fixture.data.title}</h1>
+    </header>
+
+    <MarkdownContent>
+      <Content />
+    </MarkdownContent>
+  </article>
+</Layout>

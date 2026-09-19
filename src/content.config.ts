@@ -16,7 +16,15 @@ const works = defineCollection({
   schema: z.strictObject({}),
 });
 
+const fixtures = defineCollection({
+  loader: glob({ base: "./src/content/fixtures", pattern: "**/*.md" }),
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
 export const collections = {
+  fixtures,
   posts,
   works,
 };
