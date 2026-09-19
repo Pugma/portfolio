@@ -2,9 +2,10 @@
 import { getCollection, render } from "astro:content";
 import MarkdownContent from "../../components/MarkdownContent.astro";
 import Layout from "../../layouts/Layout.astro";
+import { isFixtureEnabled } from "../../lib/fixtures";
 
 export const getStaticPaths = async () => {
-  if (!import.meta.env.DEV) {
+  if (!isFixtureEnabled) {
     return [];
   }
 
