@@ -35,7 +35,7 @@
     "@biomejs/biome": "2.5.14",
     "@iconify-json/simple-icons": "^1.2.97",
     "@types/node": "^26.6.2",
-    "browserslist": "^4.28.8",
+    "browserslist": "^4.29.0",
     "lightningcss": "^1.33.0",
     "sharp": "^0.35.4",
     "wrangler": "^4.132.0"
