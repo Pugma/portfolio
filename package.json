@@ -39,7 +39,7 @@
     "cf": "1.0.0-beta.5",
     "lightningcss": "^1.33.0",
     "sharp": "^0.35.5",
-    "wrangler": "^4.132.0"
+    "wrangler": "^4.144.0"
   },
   "packageManager": "pnpm@12.0.0"
 }
