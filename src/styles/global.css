@@ -18,18 +18,9 @@
     oklch(53.99% 0.1906 257.48),
     oklch(81.67% 0.1124 231.64)
   );
-  --color-text: light-dark(
-    oklch(32.11% 0 none),
-    oklch(90.67% 0 none)
-  );
-  --color-border: light-dark(
-    oklch(84.52% 0 none),
-    oklch(38.67% 0 none)
-  );
-  --color-button: light-dark(
-    oklch(95.51% 0 none),
-    oklch(29.43% 0.0362 283.96)
-  );
+  --color-text: light-dark(oklch(32.11% 0 none), oklch(90.67% 0 none));
+  --color-border: light-dark(oklch(84.52% 0 none), oklch(38.67% 0 none));
+  --color-button: light-dark(oklch(95.51% 0 none), oklch(29.43% 0.0362 283.96));
   --color-button-hover: light-dark(
     oklch(90.67% 0 none),
     oklch(35.79% 0.0379 284.32)
