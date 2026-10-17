@@ -36,7 +36,7 @@
     "@iconify-json/simple-icons": "^1.2.100",
     "@types/node": "^26.6.5",
     "browserslist": "^4.29.3",
-    "cf": "1.0.0-beta.5",
+    "cf": "1.0.0-beta.17",
     "lightningcss": "^1.33.0",
     "sharp": "^0.35.5",
     "wrangler": "^4.144.0"
