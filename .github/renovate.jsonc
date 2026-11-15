@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "enabledManagers": ["mise"],
+  "extends": [
+    "config:recommended",
+    "local>Pugma/portfolio//.github/renovate/commit-message.jsonc",
+    "local>Pugma/portfolio//.github/renovate/labels.jsonc",
+    "local>Pugma/portfolio//.github/renovate/mise.jsonc"
+  ]
+}
