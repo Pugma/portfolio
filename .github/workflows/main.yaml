@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: jdx/mise-action@v5.2.7
+      - uses: jdx/mise-action@v5.2.9
       - name: Get pnpm cache directories
         id: pnpm-paths
         run: |
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: jdx/mise-action@v5.2.7
+      - uses: jdx/mise-action@v5.2.9
       - name: Get pnpm cache directories
         id: pnpm-paths
         run: |
@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: jdx/mise-action@v5.2.7
+      - uses: jdx/mise-action@v5.2.9
       - name: Get pnpm cache directories
         id: pnpm-paths
         run: |
@@ -131,7 +131,7 @@ jobs:
             lhci_config: ./.lighthouserc.desktop.yaml
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: jdx/mise-action@v5.2.7
+      - uses: jdx/mise-action@v5.2.9
       - name: Download Lighthouse site
         uses: actions/download-artifact@v8.0.2
         with:
