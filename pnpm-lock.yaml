@@ -134,8 +134,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
       open-graph-scraper:
-        specifier: ^6.12.0
-        version: 6.12.0
+        specifier: ^6.13.0
+        version: 6.13.0
       tailwindcss:
         specifier: ^4.3.5
         version: 4.3.5
@@ -2245,8 +2245,8 @@ packages:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
 
-  iconv-lite@0.7.2:
-    resolution: {integrity: sha512-im9DjEDQ55s9fL4EYzOAv0yMqmMBSZp6G0VvFyTMPKWxiSBHUj9NW/qqLmXUwXrrM7AvqSlTCfvqRb0cM8yYqw==}
+  iconv-lite@0.7.3:
+    resolution: {integrity: sha512-IKXpvIzjnC9XTAUbVBcMfGS0EPaIXtW6v+zr+RRp+hqULEpo0owZax6wyRwPOJbWbzjYspQwusTsfVr0ifh4uQ==}
     engines: {node: '>=0.10.0'}
 
   import-meta-resolve@4.2.0:
@@ -2474,8 +2474,8 @@ packages:
   oniguruma-to-es@4.3.6:
     resolution: {integrity: sha512-csuQ9x3Yr0cEIs/Zgx/OEt9iBw9vqIunAPQkx19R/fiMq2oGVTgcMqO/V3Ybqefr1TBvosI6jU539ksaBULJyA==}
 
-  open-graph-scraper@6.12.0:
-    resolution: {integrity: sha512-x0fS3eHxdCox+rFBhQSVe+qBznSPn1pspp8A4BoaVEkiECZEwagEb8z06swLfaFFE2gefj1BvEBeJmdeGTDnYw==}
+  open-graph-scraper@6.13.0:
+    resolution: {integrity: sha512-b9/HlkMMQDnw9kiKr5BfWUBwTfAzCP/fEyhhOlwB9JH0aeiYMqYYsSLt/NeG2oeDGbFoDK86UuDNtJss+U5hcw==}
     engines: {node: '>=20.0.0'}
 
   p-limit@7.3.3:
@@ -2759,10 +2759,6 @@ packages:
 
   undici-types@8.9.0:
     resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
-
-  undici@7.28.0:
-    resolution: {integrity: sha512-cRZYrTDwWznlnRiPjggAGxZXanty6M8RV1ff8Wm4LWXBp7/IG8v5DnOm74DtUBp9OONpK75YlPnIjQqX0dBDtA==}
-    engines: {node: '>=20.18.1'}
 
   undici@7.29.0:
     resolution: {integrity: sha512-IDxfleLmmbSskfWSUATiN1nfn2rDuvnMOqb5CWR92iIfojA0Ud+ulOAAEQ57LPr9rWmsreUyf5lwyao+7GNNVw==}
@@ -4679,7 +4675,7 @@ snapshots:
       parse5: 7.3.0
       parse5-htmlparser2-tree-adapter: 7.1.0
       parse5-parser-stream: 7.1.2
-      undici: 7.28.0
+      undici: 7.30.1
       whatwg-mimetype: 4.0.0
 
   chokidar@5.0.0:
@@ -4984,7 +4980,7 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  iconv-lite@0.7.2:
+  iconv-lite@0.7.3:
     dependencies:
       safer-buffer: 2.1.2
 
@@ -5190,12 +5186,12 @@ snapshots:
       regex: 6.1.0
       regex-recursion: 6.0.2
 
-  open-graph-scraper@6.12.0:
+  open-graph-scraper@6.13.0:
     dependencies:
       chardet: 2.2.0
       cheerio: 1.2.0
-      iconv-lite: 0.7.2
-      undici: 7.28.0
+      iconv-lite: 0.7.3
+      undici: 7.30.1
 
   p-limit@7.3.3:
     dependencies:
@@ -5568,8 +5564,6 @@ snapshots:
   undici-types@7.18.2: {}
 
   undici-types@8.9.0: {}
-
-  undici@7.28.0: {}
 
   undici@7.29.0: {}
 
